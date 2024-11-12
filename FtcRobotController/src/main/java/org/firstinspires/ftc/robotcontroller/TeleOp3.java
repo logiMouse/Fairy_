@@ -39,7 +39,7 @@ public class TeleOp3 extends LinearOpMode {
         int posxButton = 500;
         // servo
         double closed = 0.0;
-        double open = 0.5;
+        double open = 0.2;
         servo_one.setPosition(closed);
 
         waitForStart();
@@ -81,20 +81,20 @@ public class TeleOp3 extends LinearOpMode {
 
                 // arm code liner
                 // A button
-                while  (gamepad1.a) {
-                    if (gamepad1.a){
+
+                    if (gamepad1.y){
                         Arm_Line.setTargetPosition(pos1l);
                         Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                         Arm_Line.setPower(-3);
                     }else{
                         Arm_Line.setPower(0);
                     }
-                }
+
 
 
                 // y button
-                while ( gamepad1.y){
-                    if (gamepad1.y){
+                while ( gamepad1.a){
+                    if (gamepad1.a){
                         Arm_Line.setTargetPosition(pos2l);
                         Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                         Arm_Line.setPower(3);
