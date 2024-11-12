@@ -39,7 +39,7 @@ public class TeleOp3 extends LinearOpMode {
         int posxButton = 500;
         // servo
         double closed = 0.0;
-        double open = 1.0;
+        double open = 0.5;
         servo_one.setPosition(closed);
 
         waitForStart();
