@@ -52,9 +52,8 @@ public class TeleOp3 extends LinearOpMode {
             Left_Motor.setPower(RightX - leftY);
             Right_Motor.setPower(leftY + RightX);
 
-            //arm code virtical
-            // up
-            if (gamepad1.dpad_up){
+            //arm code for up and down
+            if (gamepad2.dpad_up){
                 Arm_upR.setTargetPosition(pos1up);
                 Arm_upL.setTargetPosition(pos1up);
                 Arm_upL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -62,27 +61,23 @@ public class TeleOp3 extends LinearOpMode {
                 Arm_upL.setPower(1);
                 Arm_upR.setPower(1);
 
+            }else if (gamepad2.dpad_down){
+                Arm_upR.setTargetPosition(pos2l);
+                Arm_upL.setTargetPosition(pos2l);
+                Arm_upL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                Arm_upR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                Arm_upL.setPower(4);
+                Arm_upR.setPower(4);
             }else{
                 Arm_upL.setPower(0);
                 Arm_upR.setPower(0);
-                // down
-                if (gamepad1.dpad_down){
-                    Arm_upR.setTargetPosition(pos2l);
-                    Arm_upL.setTargetPosition(pos2l);
-                    Arm_upL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    Arm_upR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    Arm_upL.setPower(4);
-                    Arm_upR.setPower(4);
-                }else{
-                    Arm_upL.setPower(0);
-                    Arm_upR.setPower(0);
-                }
-
-
-                // arm code liner
-                // A button
-
-                    if (gamepad1.y){
+            }
+                    // arm code for liner
+                    if (gamepad2.a){
+                        Arm_Line.setTargetPosition(pos2l);
+                        Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                        Arm_Line.setPower(3);
+                    }else if (gamepad2.y){
                         Arm_Line.setTargetPosition(pos1l);
                         Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                         Arm_Line.setPower(-3);
@@ -91,37 +86,14 @@ public class TeleOp3 extends LinearOpMode {
                     }
 
 
-
-                // y button
-                while ( gamepad1.a){
-                    if (gamepad1.a){
-                        Arm_Line.setTargetPosition(pos2l);
-                        Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                        Arm_Line.setPower(3);
-                    }else{
-                        Arm_Line.setPower(0);
-                    }
-                }
-
-                // set pos x and b code
-                if ( gamepad1.right_bumper){
-                    Arm_upL.setTargetPosition(posxButton);
-                    Arm_upR.setTargetPosition(posxButton);
-                    Arm_upL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    Arm_upR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    Arm_upL.setPower(3);
-                    Arm_upR.setPower(3);
-                }
                 //Servo
-
-                if (gamepad1.x){
+                if (gamepad2.x){
                     servo_one.setPosition(open);
 
-                }else if (gamepad1.b){
+                }else if (gamepad2.b){
                     servo_one.setPosition(closed);
 
                 }
 
             }
-        }
-    }}
+        }    }}
