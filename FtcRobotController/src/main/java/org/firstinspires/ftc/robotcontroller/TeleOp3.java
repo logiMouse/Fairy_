@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller;
+/*package org.firstinspires.ftc.robotcontroller;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -13,12 +13,12 @@ public class TeleOp3 extends LinearOpMode {
     @Override
     public void runOpMode() {
         //Def Motors
-        DcMotor Left_Motor = hardwareMap.get(DcMotor.class, "Left_Motor");
-        DcMotor Right_Motor = hardwareMap.get(DcMotor.class, "Right_Motor");
+        DcMotor Left_Motor = hardwareMap.get(DcMotor.class, "LM");
+        DcMotor Right_Motor = hardwareMap.get(DcMotor.class, "RM");
         DcMotor Arm_Line = hardwareMap.get(DcMotor.class, "Arm_Line");
         DcMotor Arm_upL = hardwareMap.get(DcMotor.class,"Arm_upL");
         DcMotor Arm_upR = hardwareMap.get(DcMotor.class,"Arm_upR");
-        Servo servo_one = hardwareMap.get(Servo.class,"servo_one");
+        Servo servo_one = hardwareMap.get(Servo.class,"Servo");
         Arm_upL.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         Arm_upR.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -103,11 +103,9 @@ public class TeleOp3 extends LinearOpMode {
             //Servo
             if (gamepad2.x){
                 servo_one.setPosition(open);
-
-
             }else if (gamepad2.b){
                 servo_one.setPosition(closed);
             }
         }
     }
-}
+}*/

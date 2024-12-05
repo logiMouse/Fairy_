@@ -5,34 +5,76 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcontroller.subsy.arm_line;
+import org.firstinspires.ftc.robotcontroller.subsy.arm_pivot;
+import org.firstinspires.ftc.robotcontroller.subsy.drivetrain;
+import org.firstinspires.ftc.robotcontroller.subsy.intake;
 @TeleOp
 public class teleop extends LinearOpMode{
 
     @Override
     public void runOpMode(){
-        // defining motors for wheels ( left (L) and right (R) ) pg 1 ( for arcade )
-        DcMotor LMotor = hardwareMap.get( DcMotor.class, "LMotor");
-        DcMotor RMotor = hardwareMap.get(DcMotor.class, "RMotor");
-        // motor reverse code ( to see what to reverse comment for test) pg2
-        //LMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        //dRMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
+        // defining subsy files
+        drivetrain drivetrain = new drivetrain(hardwareMap);
+        intake intake = new intake(hardwareMap);
+        arm_line arm_line = new arm_line(hardwareMap, telemetry);
+        arm_pivot arm_pivot = new arm_pivot(hardwareMap, telemetry);
 
         waitForStart();
 
         while (opModeIsActive()){
-            // joystick def L = left R= right y= y value x = x value
-            double LY = gamepad1.left_stick_y;
-            double RX = gamepad1.right_stick_x;
+            // joystick def L = left R= right y= y value x = x value d= drivetrain
+            double LYD = gamepad1.left_stick_y;
+            double RXD = gamepad1.right_stick_x;
 
-            // motor speed according to joystick values
-            LMotor.setPower(LY + RX);
-            RMotor.setPower(LY - RX);
+            double LYP = -gamepad2.left_stick_y;
+
+            // A X Y B buttons
+            boolean A = gamepad2.a;
+            boolean Y = gamepad2.y;
+            boolean X = gamepad2.x;
+            boolean B = gamepad2.b;
+
+            // D_pads
+            boolean UP = gamepad2.dpad_up;
+            boolean DOWN = gamepad2.dpad_down;
 
 
+            // drivetrain
+            drivetrain.arcade(LYD,RXD);
 
-      }
+            // liner extension
+            if(A){
+                arm_line.Line_POS_1();
+            } else if (Y) {
+                arm_line.Line_POS_2();
+            } else {
+                arm_line.stop();
+            }
+
+            // pivot
+            if(UP){
+                arm_pivot.ARM_UP();
+            } else if (DOWN) {
+                arm_pivot.ARM_DOWN();
+            } else {
+                arm_pivot.stop();
+            }
+
+            //arm_pivot.Joysticks(LYP-0.7);
+
+            // intake
+            if(X){
+                intake.open();
+            } else if (B) {
+                intake.closed();
+            }
+
+
+        }
 
 
 

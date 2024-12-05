@@ -13,7 +13,7 @@ public class constance {
     //pivot positions
     public static final int pivot_pos1 = 0;
     public static final int pivot_pos2 = 50;
-    public static final int pivot_pos3 = 90;
+    public static final int pivot_pos3 = 900;
     //power for motors
     public static final double pivot_power = 0.5;
     public static int pos1up = 1100;
@@ -27,11 +27,11 @@ public class constance {
     public static final double arm_kF2 = 0;
     public static final double arm_kF3 = 0;
     //arm positions
-    public static final int arm_pos1 = 0;
+    public static final int arm_pos1 = -900;
     public static final int arm_pos2 = 500;
-    public static final int arm_pos3 = 1000;
+    public static final int arm_pos3 = 900;
     //power for arm motor
-    public static final double arm_power = 0.5;
+    public static final double arm_power = 1;
         public static int pos_Line = 500;
     // intake
 
