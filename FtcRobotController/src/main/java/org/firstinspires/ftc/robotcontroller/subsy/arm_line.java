@@ -34,7 +34,7 @@ public class arm_line {
         update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
         Arm_Line.setTargetPosition(constance.arm_pos3);
         Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        //Don't change -1
+        //Don't change the -
         Arm_Line.setPower(-1);
 
     }
@@ -43,7 +43,7 @@ public class arm_line {
         update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
         Arm_Line.setTargetPosition(constance.arm_pos1);
         Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        //Don't Change -1
+        //Don't Change the -
         Arm_Line.setPower(-1);
 
     }

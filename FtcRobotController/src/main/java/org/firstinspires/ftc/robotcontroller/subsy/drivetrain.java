@@ -42,15 +42,15 @@ public class drivetrain {
         Left_motor.setPower(leftY - RightX);
         Right_motor.setPower(RightX + leftY);
     }
-    public void move_ticks(int ticks, double speed) {
+    public void move_ticks(int ticks, double sleep) {
         //reset encoder first
         this.Reset_encoder();
         Right_motor.setTargetPosition(ticks);
         Left_motor.setTargetPosition(ticks);
         Right_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         Left_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Right_motor.setPower(speed);
-        Left_motor.setPower(speed);
+        Right_motor.setPower(sleep);
+        Left_motor.setPower(sleep);
     }
 
     public void Reset_encoder(){

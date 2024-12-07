@@ -30,7 +30,7 @@ public class teleop extends LinearOpMode{
             double LYD = gamepad1.left_stick_y;
             double RXD = gamepad1.right_stick_x;
 
-            double LYP = -gamepad2.left_stick_y;
+            //double LYP = -gamepad2.left_stick_y;
 
             // A X Y B buttons
             boolean A = gamepad2.a;
