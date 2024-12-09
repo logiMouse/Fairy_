@@ -27,9 +27,12 @@ public class constance {
     public static final double arm_kF2 = 0;
     public static final double arm_kF3 = 0;
     //arm positions
-    public static final int arm_pos1 = -900;
-    public static final int arm_pos2 = 500;
-    public static final int arm_pos3 = 950;
+    public static final int arm_pos1 =  800;
+    public static final int arm_pos2 = -3900;
+    public static final int arm_pos3 = -3300;
+
+    public static final int UParm_pos1 = -3500;
+    public static final int UParm_pos2 = 800;
     //power for arm motor
     public static final double arm_power = 1;
         public static int pos_Line = 500;

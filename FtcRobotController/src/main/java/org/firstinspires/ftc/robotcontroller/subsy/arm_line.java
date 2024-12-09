@@ -14,6 +14,8 @@ public class arm_line {
     Telemetry telemetry;
     OpMode opMode;
     double Right;
+
+
     public arm_line(HardwareMap hardwareMap,Telemetry telemetry) {
         Arm_Line = hardwareMap.get(DcMotorEx.class, "Arm_Line");
         this.opMode = opMode;
@@ -23,32 +25,47 @@ public class arm_line {
         Arm_Line.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         Arm_Line.setTargetPosition(0);
         Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
+
+        //update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
 
     }
     public void arm_Line(){
-        update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
+        //update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
         Arm_Line.setPower(Right);
     }
     public void Line_POS_1() {
-        update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
-        Arm_Line.setTargetPosition(constance.arm_pos3);
-        Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
+        Arm_Line.setTargetPosition(constance.arm_pos1);
+        //Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         //Don't change the -
         Arm_Line.setPower(-1);
 
     }
 
     public void Line_POS_2() {
-        update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
-        Arm_Line.setTargetPosition(constance.arm_pos1);
-        Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
+        Arm_Line.setTargetPosition(constance.arm_pos2);
+        //Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         //Don't Change the -
         Arm_Line.setPower(-1);
 
     }
+    public void Line_POS_3() {
+        //update_pidf(constance.arm_kP, constance.arm_kI, constance.arm_kD, constance.arm_kF1);
+        Arm_Line.setTargetPosition(constance.arm_pos3);
+        //Arm_Line.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //Don't Change the -
+        Arm_Line.setPower(-1);
+
+    }
+
     public void stop(){
         Arm_Line.setPower(0);
+    }
+
+    public void addTelemetry() {
+        telemetry.addData("armposition %d", Arm_Line.getCurrentPosition());
+        telemetry.update();
     }
 
 

@@ -41,6 +41,8 @@ public class teleop extends LinearOpMode{
             // D_pads
             boolean UP = gamepad2.dpad_up;
             boolean DOWN = gamepad2.dpad_down;
+            boolean RIGHT = gamepad2.dpad_right;
+
 
 
             // drivetrain
@@ -51,17 +53,19 @@ public class teleop extends LinearOpMode{
                 arm_line.Line_POS_1();
             } else if (Y) {
                 arm_line.Line_POS_2();
-            } else {
-                arm_line.stop();
+            } else if (RIGHT) {
+                arm_line.Line_POS_3();
+            }else {
+               arm_line.stop();
             }
 
             // pivot
-            if(UP){
+            if(DOWN){
                 arm_pivot.ARM_UP();
-            } else if (DOWN) {
+            } else if (UP) {
                 arm_pivot.ARM_DOWN();
             } else {
-                arm_pivot.stop();
+              arm_pivot.stop();
             }
 
             //arm_pivot.Joysticks(LYP-0.7);
@@ -72,6 +76,8 @@ public class teleop extends LinearOpMode{
             } else if (B) {
                 intake.closed();
             }
+
+            arm_line.addTelemetry();
 
 
         }

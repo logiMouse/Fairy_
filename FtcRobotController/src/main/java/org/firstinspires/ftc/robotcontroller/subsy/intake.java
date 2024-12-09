@@ -15,7 +15,7 @@ public class intake {
 
     public void open(){
 
-        Servo.setPosition(0.2);
+        Servo.setPosition(0.8);
     }
 
     public void closed(){

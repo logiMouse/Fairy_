@@ -42,42 +42,11 @@ public class drivetrain {
         Left_motor.setPower(leftY - RightX);
         Right_motor.setPower(RightX + leftY);
     }
-    public void move_ticks(int ticks, double sleep) {
-        //reset encoder first
-        this.Reset_encoder();
-        Right_motor.setTargetPosition(ticks);
-        Left_motor.setTargetPosition(ticks);
-        Right_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Left_motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Right_motor.setPower(sleep);
-        Left_motor.setPower(sleep);
-    }
 
     public void Reset_encoder(){
         Right_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         Left_motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
     }
-    // AUTO/////////////////////////////////////////////////////////////////////////////
-    public double get_Yaw() {
-        robot_orientation = imu.getRobotYawPitchRollAngles();
-        return robot_orientation.getYaw(AngleUnit.DEGREES);
 
-    }
-    public void rotate_degrees(double target){
-        while (this.get_Yaw() != target) {
-            double distance = target - this.get_Yaw();
-
-            Left_motor.setPower(MathUtils.clamp(distance * constance.rot_kP, -1,1));
-            Right_motor.setPower(MathUtils.clamp(distance * constance.rot_kP, -1,1));
-        }
-    }
-
-
-    public boolean RM_busy(){
-        return Right_motor.isBusy();
-    }
-    public boolean LM_busy(){
-        return Left_motor.isBusy();
-    }
 }

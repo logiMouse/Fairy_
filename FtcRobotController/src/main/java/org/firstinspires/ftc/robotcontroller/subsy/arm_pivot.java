@@ -57,8 +57,8 @@ public class arm_pivot {
 
     public void ARM_UP() {
         update_pidf(constance.pivot_kP,constance.pivot_kI, constance.pivot_kD, constance.pivot_kF1);
-        Arm_upR.setTargetPosition(constance.arm_pos3);
-        Arm_upL.setTargetPosition(constance.arm_pos3);
+        Arm_upR.setTargetPosition(constance.UParm_pos1);
+        Arm_upL.setTargetPosition(constance.UParm_pos1);
         Arm_upR.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         Arm_upL.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         Arm_upL.setPower(1);

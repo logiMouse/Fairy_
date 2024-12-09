@@ -2,18 +2,11 @@ package org.firstinspires.ftc.robotcontroller;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.robotcontroller.subsy.Auto_drivetrain;
-import org.firstinspires.ftc.robotcontroller.subsy.arm_line;
-import org.firstinspires.ftc.robotcontroller.subsy.arm_pivot;
-import org.firstinspires.ftc.robotcontroller.subsy.drivetrain;
-import org.firstinspires.ftc.robotcontroller.subsy.intake;
 
 @Autonomous
-public class Auto extends LinearOpMode {
-
-
+public class Auto_BIG extends LinearOpMode {
 
     @Override
     public void runOpMode(){
@@ -25,16 +18,21 @@ public class Auto extends LinearOpMode {
         waitForStart();
 
 
-        drivetrain.move_ticks(-2550,0.45  );
+        drivetrain.move_ticks(-500,0.5  );
 
         while (opModeIsActive() && (drivetrain.LM_busy() || drivetrain.RM_busy())); {
         }
 
+        drivetrain.rotate_degrees(45);
 
-
-
+        while (opModeIsActive() && (drivetrain.LM_busy() || drivetrain.RM_busy())); {
+        }
+         drivetrain.move_ticks(-500,0.5);
 
 
 
     }
+
+
+
 }
