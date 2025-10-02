@@ -3,6 +3,7 @@ package org.firstinspires.ftc.robotcontroller.subsy;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
 
 import com.qualcomm.hardware.motors.RevRobotics20HdHexMotor;
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -13,12 +14,25 @@ public class The_better_train {
     DcMotorEx front_left;
     DcMotorEx back_right;
     DcMotorEx front_right;
+    IMU imu;
+    IMU.Parameters imU_peramiters;
+
 
      public void drivetrain_motors (HardwareMap hardwareMap){
          back_left = hardwareMap.get(DcMotorEx.class, "lmb");
          back_right = hardwareMap.get(DcMotorEx.class, "rmb");
          front_right = hardwareMap.get(DcMotorEx.class, "bld");
-         front_left = hardwareMap.get(DcMotorEx.class, "bld");
+         front_left = hardwareMap.get(DcMotorEx.class, "b0d");
+         imu = hardwareMap.get(IMU.class, "imu");
+
+         imU_peramiters = new IMU.Parameters(
+                 new RevHubOrientationOnRobot(
+                         RevHubOrientationOnRobot.LogoFacingDirection.UP,
+                         RevHubOrientationOnRobot.UsbFacingDirection.FORWARD
+                 )
+         );
+
+         imu.initialize(imU_peramiters);
 
 
      }
