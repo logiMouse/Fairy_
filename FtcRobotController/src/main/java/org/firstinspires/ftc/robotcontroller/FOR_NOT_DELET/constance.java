@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
+/**package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
 
 public class constance {
     // pivot pid
@@ -40,4 +40,4 @@ public class constance {
 
     // drivetrain
     public static final double rot_kP = 0.01;
-}
+}*/

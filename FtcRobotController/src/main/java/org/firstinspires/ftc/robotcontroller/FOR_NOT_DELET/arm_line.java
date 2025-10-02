@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller.subsy;
+/**package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -78,11 +78,11 @@ public class arm_line {
 
     // AUTO/////////////////////////////////////////////////////////////////////////////
 
-/*    public void ARM_AUTO(){
+      public void ARM_AUTO(){
         Arm_Line.setPower(0.2);
         sleep(1000);
         Arm_Line.setPower(0);
     } */
 
 
-}
+

@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
+/**package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.robotcontroller.subsy.arm_line;
-import org.firstinspires.ftc.robotcontroller.subsy.arm_pivot;
-import org.firstinspires.ftc.robotcontroller.subsy.drivetrain;
-import org.firstinspires.ftc.robotcontroller.subsy.intake;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.arm_line;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.arm_pivot;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.drivetrain;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.intake;
 @TeleOp
 public class teleop extends LinearOpMode{
 
@@ -83,5 +83,5 @@ public class teleop extends LinearOpMode{
     }
 
 
-}
+}*/
 

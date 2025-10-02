@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
+/**package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.robotcontroller.subsy.Auto_drivetrain;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.Auto_drivetrain;
 
 @Autonomous
 public class Auto_BIG extends LinearOpMode {
@@ -35,4 +35,4 @@ public class Auto_BIG extends LinearOpMode {
 
 
 
-}
+}*/

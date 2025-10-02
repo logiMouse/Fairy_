@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller.subsy;
+/*package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -22,4 +22,4 @@ public class intake {
 
         Servo.setPosition(0.0);
     }
-}
+}*/
