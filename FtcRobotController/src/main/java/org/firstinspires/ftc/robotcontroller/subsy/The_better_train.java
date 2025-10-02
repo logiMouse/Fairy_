@@ -6,6 +6,7 @@ import com.qualcomm.hardware.motors.RevRobotics20HdHexMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IMU;
 
 public class The_better_train {
     DcMotorEx  back_left;
@@ -23,10 +24,8 @@ public class The_better_train {
      }
 
      // the three axis will be defined here
-     public void strife_calc(){
-         double turn = gamepad1.right_stick_x;
-         double strife = gamepad1.left_stick_x;
-         double straight = gamepad1.left_stick_y;
+     public void strife_calc(double turn, double strife, double straight){
+
 
          double [] speed = {
                  (turn + strife + straight),
