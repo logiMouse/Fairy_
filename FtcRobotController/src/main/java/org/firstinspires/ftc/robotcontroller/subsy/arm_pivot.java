@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.robotcontroller.subsy;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -10,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.robotcontroller.constance;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.constance;
 
 public class arm_pivot {
     DcMotorEx Arm_upR;

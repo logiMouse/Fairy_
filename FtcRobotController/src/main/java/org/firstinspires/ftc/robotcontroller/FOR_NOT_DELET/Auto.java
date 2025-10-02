@@ -1,14 +1,9 @@
-package org.firstinspires.ftc.robotcontroller;
+package org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.robotcontroller.subsy.Auto_drivetrain;
-import org.firstinspires.ftc.robotcontroller.subsy.arm_line;
-import org.firstinspires.ftc.robotcontroller.subsy.arm_pivot;
-import org.firstinspires.ftc.robotcontroller.subsy.drivetrain;
-import org.firstinspires.ftc.robotcontroller.subsy.intake;
 
 @Autonomous
 public class Auto extends LinearOpMode {

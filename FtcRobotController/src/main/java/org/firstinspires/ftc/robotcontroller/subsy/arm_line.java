@@ -6,9 +6,9 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 
-import org.firstinspires.ftc.robotcontroller.constance;
+import org.firstinspires.ftc.robotcontroller.FOR_NOT_DELET.constance;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import java.lang.Thread;
+
 public class arm_line {
     DcMotorEx Arm_Line;
     Telemetry telemetry;
