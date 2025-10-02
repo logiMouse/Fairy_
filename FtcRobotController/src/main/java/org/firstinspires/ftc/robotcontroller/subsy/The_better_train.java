@@ -8,16 +8,16 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class The_better_train {
-    DcMotorEx lf_bk;
-    DcMotorEx lf_fd;
-    DcMotorEx rt_bk;
-    DcMotorEx rt_fd;
+    DcMotorEx  back_left;
+    DcMotorEx front_left;
+    DcMotorEx back_right;
+    DcMotorEx front_right;
 
      public void drivetrain_motors (HardwareMap hardwareMap){
-         lf_bk = hardwareMap.get(DcMotorEx.class, "lmb");
-         rt_bk = hardwareMap.get(DcMotorEx.class, "rmb");
-         rt_fd = hardwareMap.get(DcMotorEx.class, "bld");
-         lf_fd = hardwareMap.get(DcMotorEx.class, "bld");
+         back_left = hardwareMap.get(DcMotorEx.class, "lmb");
+         back_right = hardwareMap.get(DcMotorEx.class, "rmb");
+         front_right = hardwareMap.get(DcMotorEx.class, "bld");
+         front_left = hardwareMap.get(DcMotorEx.class, "bld");
 
 
      }
@@ -29,10 +29,29 @@ public class The_better_train {
          double straight = gamepad1.left_stick_y;
 
          double [] speed = {
+                 (turn + strife + straight),
                  (turn- strife - straight),
-                 (turn- strife - straight),
-                 (turn- strife - straight)
+                 (turn - strife + straight),
+                 (turn + strife - straight)
          };
+
+         double max = Math.abs(speed[0]);
+
+         for (int i = 0; i < speed.length; i++) {
+             if ( max < Math.abs(speed[i]) ) max = Math.abs(speed[i]);
+         }
+
+         if (max > 1) {
+             for (int i = 0; i < speed.length; i++) speed[i] /= max;
+         }
+
+
+         front_left.setPower(speed[0]);
+         front_right.setPower(speed[1]);
+         back_left.setPower(speed[2]);
+         back_right.setPower(speed[3]);
+
+
 
      }
 
