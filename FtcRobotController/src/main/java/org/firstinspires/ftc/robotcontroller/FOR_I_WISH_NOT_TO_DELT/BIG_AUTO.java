@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcontroller.subsy.Auto_drivetrain;
 
 @Autonomous
-public class Auto_BIG extends LinearOpMode {
+public class BIG_AUTO extends LinearOpMode {
 
     @Override
     public void runOpMode(){
