@@ -13,14 +13,18 @@ public class TeleOP_Derivitive extends LinearOpMode {
 
     @Override
     public void runOpMode(){
-        The_better_train The_better_train =  new The_better_train();
+        The_better_train The_better_train =  new The_better_train(hardwareMap);
+        double left = gamepad1.left_stick_y;
 
+        double left_x = gamepad1.left_stick_x;
+
+        double right = gamepad1.right_stick_x;
 
         waitForStart();
 
         while (opModeIsActive()){
 
-            The_better_train.strife_calc(gamepad1.left_stick_y,gamepad1.left_stick_x, gamepad1.right_stick_x );
+            The_better_train.strife_calc(left ,left_x, right );
 
 
         }

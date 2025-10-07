@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
 public class The_better_train {
-    DcMotorEx  back_left;
+    DcMotorEx back_left;
     DcMotorEx front_left;
     DcMotorEx back_right;
     DcMotorEx front_right;
@@ -18,7 +18,7 @@ public class The_better_train {
     IMU.Parameters imU_peramiters;
 
 
-     public void drivetrain_motors (HardwareMap hardwareMap){
+     public The_better_train (HardwareMap hardwareMap) {
          back_left = hardwareMap.get(DcMotorEx.class, "lmb");
          back_right = hardwareMap.get(DcMotorEx.class, "rmb");
          front_right = hardwareMap.get(DcMotorEx.class, "bld");
@@ -33,17 +33,19 @@ public class The_better_train {
          );
 
          imu.initialize(imU_peramiters);
-
-
      }
+
+
+
 
      // the three axis will be defined here
      public void strife_calc(double turn, double strife, double straight){
 
 
+
          double [] speed = {
                  (turn + strife + straight),
-                 (turn- strife - straight),
+                 (turn - strife - straight),
                  (turn - strife + straight),
                  (turn + strife - straight)
          };
@@ -67,5 +69,7 @@ public class The_better_train {
 
 
      }
+
+
 
 }
