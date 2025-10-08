@@ -15,16 +15,25 @@ public class The_better_train {
     DcMotorEx front_left;
     DcMotorEx back_right;
     DcMotorEx front_right;
+
     IMU imu;
     IMU.Parameters imU_peramiters;
 
 
      public The_better_train (HardwareMap hardwareMap) {
-         back_left = hardwareMap.get(DcMotorEx.class, "lmb");
-         back_right = hardwareMap.get(DcMotorEx.class, "rmb");
-         front_right = hardwareMap.get(DcMotorEx.class, "bld");
-         front_left = hardwareMap.get(DcMotorEx.class, "b0d");
+
+
+         back_left = hardwareMap.get(DcMotorEx.class, "LMB");
+         back_right = hardwareMap.get(DcMotorEx.class, "RMB");
+         front_right = hardwareMap.get(DcMotorEx.class, "RMF");
+         front_left = hardwareMap.get(DcMotorEx.class, "LMF");
          imu = hardwareMap.get(IMU.class, "imu");
+
+         front_left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+         front_right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+         back_left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+         back_right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
 
          imU_peramiters = new IMU.Parameters(
                  new RevHubOrientationOnRobot(
@@ -67,6 +76,8 @@ public class The_better_train {
          front_right.setPower(speed[1]);
          back_left.setPower(speed[2]);
          back_right.setPower(speed[3]);
+
+
 
 
 

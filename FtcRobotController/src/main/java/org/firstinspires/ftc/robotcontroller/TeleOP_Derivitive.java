@@ -16,9 +16,9 @@ public class TeleOP_Derivitive extends LinearOpMode {
         The_better_train The_better_train =  new The_better_train(hardwareMap);
 
         // joysticks (driver)
-        double left_joystick_y = gamepad1.left_stick_y;
-        double left_joystick_x = gamepad1.left_stick_x;
-        double right_joystick_x = gamepad1.right_stick_x;
+        double left_joystick_y;
+        double left_joystick_x;
+        double right_joystick_x;
         
         // buttons (operator)
         boolean button_x = gamepad2.x;
@@ -26,8 +26,12 @@ public class TeleOP_Derivitive extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()){
+            left_joystick_y = gamepad1.left_stick_y;
+            left_joystick_x = gamepad1.left_stick_x;
+            right_joystick_x = gamepad1.right_stick_x;
 
             The_better_train.strife_calc(left_joystick_y ,left_joystick_x, right_joystick_x );
+
 
 
         }
