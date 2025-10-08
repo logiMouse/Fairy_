@@ -21,7 +21,7 @@ public class TeleOP_Derivitive extends LinearOpMode {
         double right_joystick_x = gamepad1.right_stick_x;
         
         // buttons (operator)
-        double button_x = gamepad2.x;
+        boolean button_x = gamepad2.x;
 
         waitForStart();
 
