@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
 public class The_better_train {
+    
     DcMotorEx back_left;
     DcMotorEx front_left;
     DcMotorEx back_right;
@@ -55,6 +56,7 @@ public class The_better_train {
          for (int i = 0; i < speed.length; i++) {
              if ( max < Math.abs(speed[i]) ) max = Math.abs(speed[i]);
          }
+
 
          if (max > 1) {
              for (int i = 0; i < speed.length; i++) speed[i] /= max;
