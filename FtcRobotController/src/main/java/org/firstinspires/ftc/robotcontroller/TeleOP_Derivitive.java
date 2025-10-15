@@ -22,6 +22,7 @@ public class TeleOP_Derivitive extends LinearOpMode {
         
         // buttons (operator)
         boolean button_x = gamepad2.x;
+        boolean button_a = gamepad2.a;
 
         waitForStart();
 
