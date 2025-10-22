@@ -35,14 +35,10 @@ public class The_Better_Constance {
         
     }
 
-    public auto_intake(){
-        
-    }
 
-    public auto_shooter(){
 
         
-    }
+
 
 
     
