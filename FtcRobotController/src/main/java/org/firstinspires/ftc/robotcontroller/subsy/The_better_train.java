@@ -83,6 +83,44 @@ public class The_better_train {
 
      }
 
+    public void driveInches(double inches, double power) {
+    int ticksPerRev = 560; // GoBilda/REV HD Hex motor ticks
+    double wheelDiameter = 4.0; // change if not using 4" wheels
+    double ticksPerInch = ticksPerRev / (Math.PI * wheelDiameter);
+
+    int moveTicks = (int) (inches * ticksPerInch);
+
+    // Reset encoders
+    setRunMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+    // Set target positions
+    front_left.setTargetPosition(moveTicks);
+    front_right.setTargetPosition(moveTicks);
+    back_left.setTargetPosition(moveTicks);
+    back_right.setTargetPosition(moveTicks);
+
+    setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+    // Apply power
+    front_left.setPower(power);
+    front_right.setPower(power);
+    back_left.setPower(power);
+    back_right.setPower(power);
+
+    // Wait until done
+    while (front_left.isBusy() && front_right.isBusy() && back_left.isBusy() && back_right.isBusy()) {
+        // You can add telemetry if you want
+    }
+
+    // Stop motors
+    front_left.setPower(0);
+    front_right.setPower(0);
+    back_left.setPower(0);
+    back_right.setPower(0);
+
+    setRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+}
+
 
 
 }
