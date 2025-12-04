@@ -48,7 +48,7 @@ public class The_better_train {
 
 
 
-     // the three axis will be defined here
+     // the three axis be defined here
      public void strife_calc(double turn, double strife, double straight){
 
 
@@ -80,11 +80,31 @@ public class The_better_train {
 
      }
 
-    public void turn( double degrees){
-        turn_ticks = degrees;
+    public void test(){
+        
+    }
+
+    public void turn_left(double degrees){
+       double turnCircumference = Math.PI * wheelBaseWidth;
+       double distance = (degrees / 360.0) * turnCircumference;
+       int ticks = (int) (distance * ticksPerRotation / wheelCircumference);
+
+        
+     
+
+        
         
                    
     }
+
+    public void turn_right(double degrees){
+        turn_ticks = degrees;
+
+        
+        
+                   
+    }
+    
     //Thread.sleep(mili)
     public void driveInches(double inches, double power) {
     int ticksPerRev = 560; 
