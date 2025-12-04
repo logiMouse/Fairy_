@@ -78,60 +78,88 @@ public class The_better_train {
          back_right.setPower(speed[3]);
 
 
-
-
-
      }
 
-    public void turn(){
-       // turn degrees 
+    public void turn( double degrees){
+        turn_ticks = degrees;
         
                    
     }
-
+    //Thread.sleep(mili)
     public void driveInches(double inches, double power) {
     int ticksPerRev = 560; 
     double wheelDiameter = 4.0; // 4" wheels
-    double ticksPerInch = ticksPerRev / (Math.PI * wheelDiameter);
+    double ticksPerInch = (double) ticksPerRev / (Math.PI * wheelDiameter);
+    //double Aj_Power = Math.abs(power) * Math.signum(inches);  
 
     int moveTicks = (int) (inches * ticksPerInch);
 
+    // zero power behaviour 
+     front_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+     front_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+     back_left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+     back_right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
-    // Set target positions
-    front_left.setTargetPosition(moveTicks);
-    front_right.setTargetPosition(moveTicks);
-    back_left.setTargetPosition(moveTicks);
-    back_right.setTargetPosition(moveTicks);
-
-    // Reset encoders
-
+    // Reset encoders FIRST
     front_left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     front_right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     back_left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     back_right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-    // Apply power
+
+     // Set target positions
+    front_left.setTargetPosition(moveTicks);
+    front_right.setTargetPosition(moveTicks);
+    back_left.setTargetPosition(moveTicks);
+    back_right.setTargetPosition(moveTicks);
+
+
+      // Switch to RUN_TO_POSITION
+    front_left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    front_right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    back_left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    back_right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+   
+    // start
     front_left.setPower(power);
     front_right.setPower(power);
     back_left.setPower(power);
     back_right.setPower(power);
 
-     setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
-
     // Wait until done
+    long startTime = System.currentTimeMillis();
+    long timeout = 30000; // 30 seconds timeout
+        
     while (front_left.isBusy() || front_right.isBusy() || back_left.isBusy() || back_right.isBusy()) {
-        // You can add telemetry if you want
-    }
-
+        && (System.currentTimeMillis() - startTime < timeout)) //Thread.sleep(10);//idle(); 
+    }Thread.sleep(10);
+ 
     // Stop motors
     front_left.setPower(0);
     front_right.setPower(0);
     back_left.setPower(0);
     back_right.setPower(0);
 
-    setRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-}
+    // switch back to encoder mode
+    front_left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    front_right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    back_left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    back_right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+   // setRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//telemetry.addData("Moving...", "Time: %d ms", System.currentTimeMillis() - startTime);
+//telemetry.update();
+
+        //long startTime = System.currentTimeMillis();
+//long waitTime = 2000;  2 seconds - note : safter wait thing 
+//while (System.currentTimeMillis() - startTime < waitTime) {
+   // idle(); // lets the system update
+    //telemetry.addData("Waiting", "Time left: %.1f s", (waitTime - (System.currentTimeMillis() - startTime))/1000.0);
+  //  telemetry.update();
+
+    }
 
 
 
